@@ -2,13 +2,16 @@ import React, { useState, useEffect }  from 'react';
 import './App.css';
 // import { Route } from "react-router-dom"
 import axios from "axios"
+import ScoreCount from "./components/ScoreCount"
+import Timer from "./components/Timer"
+import RestartGame from './components/RestartGame';
+
 
 const App = () => {
 
   const [question, setQuestion] = useState("");
   const [loading, setLoading] = useState(false);
   const [answer, setAnswer] = useState("");
-  const [score, setScore] = useState(0)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,7 +19,6 @@ const App = () => {
       const resp = await axios
         .get("http://jservice.io/api/random")
         .then(response => {
-          // console.log("response", response.data)
           setQuestion(response.data[0])
         })
         .catch(error => console.log(error))
@@ -29,13 +31,9 @@ const App = () => {
     setAnswer(e.target.value) 
   }
 
-console.log("question", question)
-
   return (
     <div className="App">
-        <h1>Quiz Game</h1>
-        <h3>score: {score}</h3>
-
+        <ScoreCount />
         {question ? (
           <>
           <h4>{question.category && question.category.title}</h4>
@@ -55,6 +53,9 @@ console.log("question", question)
             />
         <button>Submit</button>
     </form>
+          
+          <Timer />
+          <RestartGame />
     </div>
   );
 }
