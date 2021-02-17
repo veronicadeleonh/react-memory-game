@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
-import {useSelector, useDisptach} from "react-redux"
+import {useSelector, useDispatch} from "react-redux"
 
 import {increaseScore, decreaseScore} from "../actions/index"
 
 export default function ScoreCount() {
 
     const score = useSelector(state => state.score)
-    const dispatch = useDisptach()
+    const dispatch = useDispatch()
 
     return (
         <div>
