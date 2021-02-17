@@ -41,7 +41,8 @@ console.log("question", question)
           <h4>{question.category && question.category.title}</h4>
           <h2>{question.question}</h2>
           </>
-        ) : null}
+        ) : 
+          <h2>Loading...</h2>}
         
     <form>
         <input
