@@ -54,7 +54,7 @@ const App = () => {
         <button>Submit</button>
     </form>
           
-          <Timer />
+          {/* <Timer /> */}
           <RestartGame />
     </div>
   );
